@@ -84,6 +84,7 @@ def main():
     try_methods()
     try_functions()
     try_methods_and_functions()
+
     window.close_on_mouse_click()
 
 
