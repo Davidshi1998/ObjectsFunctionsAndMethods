@@ -6,12 +6,15 @@ This module lets you practice  ** using objects **, including:
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
          their colleagues and David Shi.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
 
 def main():
+    two_circles()
+    circle_and_rectangle()
+    lines()
     """ Calls the other functions to demonstrate and/or test them. """
     # Test your functions by putting calls to them here:
 
@@ -33,6 +36,17 @@ def two_circles():
     # Put a statement in   main   to test this function
     #    (by calling this function).
     # ------------------------------------------------------------------
+
+    window = rg.RoseWindow()
+
+    David = rg.Circle(rg.Point(80,80),20)
+    David.fill_color = 'blue'
+    Josh = rg.Circle(rg.Point(200,250),40)
+    David.attach_to(window)
+    Josh.attach_to(window)
+
+    window.render()
+    window.close_on_mouse_click()
 
 
 def circle_and_rectangle():
@@ -76,6 +90,27 @@ def circle_and_rectangle():
     #       instance variables for outline thickness, etc.
     # ------------------------------------------------------------------
 
+    window = rg.RoseWindow()
+    circle = rg.Circle(rg.Point(200, 200), 50)
+    rectangle = rg.Rectangle(rg.Point(10, 20), rg.Point(100, 200))
+    circle.fill_color = 'blue'
+    circle.attach_to(window)
+    rectangle.attach_to(window)
+
+    window.render()
+    window.close_on_mouse_click()
+
+    print(circle.outline_thickness)
+    print(circle.fill_color)
+    print(circle.center)
+    print(circle.center.x)
+    print(circle.center.y)
+
+    print(rectangle.outline_thickness)
+    print(rectangle.fill_color)
+    print(rectangle.get_center())
+    print(rectangle.get_center().x)
+    print(rectangle.get_center().y)
 
 def lines():
     """
@@ -100,9 +135,21 @@ def lines():
     -- Waits for the user to press the mouse, then closes the window.
     """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     # ------------------------------------------------------------------
+    window = rg.RoseWindow()
 
+    line1 = rg.Line(rg.Point(30,50), rg.Point(200,100))
+    line2 = rg.Line(rg.Point(20,30), rg.Point(130,220))
+    line2.thickness = 20
+    print(line2.get_midpoint())
+    print(line2.get_midpoint().x)
+    print(line2.get_midpoint().y)
+    line2.attach_to(window)
+    line1.attach_to(window)
+
+    window.render()
+    window.close_on_mouse_click()
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
