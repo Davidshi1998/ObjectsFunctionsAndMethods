@@ -66,7 +66,7 @@ def turtle_fun():
     alan.end_fill()
 
     alan.forward(200)
-
+circle.clone()
     window.close_on_mouse_click()
 
 
